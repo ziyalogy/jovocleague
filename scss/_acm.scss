@@ -1,0 +1,339 @@
+// HERO
+// -----------------
+.acm-hero {
+  // Style 1
+  &.style-1 {
+    border-radius: $border-radius-lg;
+    background-size: cover;
+    background-position: center center;
+    padding: $grid-gutter-width * 9 0;
+    position: relative;
+
+    // Tablet view
+    @include media-breakpoint-down(xl) {
+      padding: $grid-gutter-width * 5 0;
+    }
+
+    // Mobile view
+    @include media-breakpoint-down(md) {
+      padding: $grid-gutter-width * 3 0;
+    }
+
+    @include media-breakpoint-down(sm) {
+      padding: $grid-gutter-width * 2 0;
+    }
+
+    // Mask
+    .mask {
+      background: $black;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    // Item
+    .hero-item {
+      max-width: 900px;
+
+      // Title
+      h1 {
+        font-size: 120px;
+        font-weight: 800;
+        line-height: 1;;
+        color: $white;
+        margin-bottom: 0;
+        margin-top: 0;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+
+        // Tablet view
+        @include media-breakpoint-down(xxl) {
+          font-size: 80px;
+        }
+
+        @include media-breakpoint-down(xl) {
+          font-size: 54px;
+          line-height: 1.2;
+        }
+
+        @include media-breakpoint-down(md) {
+          font-size: var(--h2-font-size);
+        }
+
+        @include media-breakpoint-down(sm) {
+          font-size: var(--h3-font-size);
+        }
+      }
+
+      // Description
+      p {
+        color: $white;
+        margin-bottom: $grid-gutter-width * 2;
+        max-width: 420px;
+        opacity: 0.8;
+
+        // Mobile view
+        @include media-breakpoint-down(sm) {
+          margin-bottom: $grid-gutter-width;
+        }
+      }
+
+      // Action
+      .btn {
+        i {
+          margin-left: 5px;
+        }
+      }
+    }
+
+    // Align Center
+    &.align-center {
+      text-align: center;
+
+      .hero-item {
+        margin: auto;
+        text-align: center;
+
+        p {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+  }
+}
+
+//
+// FEATURES
+// ------------------------------------
+.acm-features {
+  // Style 1
+  &.style-1 {
+    .row {
+      align-items: center;
+    }
+
+    .info-wrap {
+      max-width: 520px;
+      padding-left: $grid-gutter-width * 2;
+
+      // Tablet view
+      @include media-breakpoint-down(lg) {
+        padding-left: $grid-gutter-width;
+      }
+
+      @include media-breakpoint-down(md) {
+        padding-left: 0;
+        margin: auto;
+        text-align: center;
+      }
+    }
+
+    // Title
+    .feature-title {
+      margin-top: 0;
+      margin-bottom: $spacer;
+
+      // Mobile view
+      @include media-breakpoint-down(md) {
+        font-size: var(--h4-font-size);
+      }
+
+      span {
+        position: relative;
+
+        &:before {
+          background-image: url('../images/text-highlight.png');
+          background-repeat: no-repeat;
+          background-position: center bottom;
+          bottom: 7px;
+          content: "";
+          position: absolute;
+          left: -10px;
+          right: -10px;
+          height: 9px;
+        } 
+
+        b {
+          font-weight: var(--heading-font-weight);
+          position: relative;
+          z-index: 2;
+        }
+      }
+    }
+
+    // Intro Image
+    .features-media {
+      // Tablet view
+      @include media-breakpoint-down(md) {
+        margin-bottom: $grid-gutter-width;
+      }
+    }
+
+    // Action
+    .feature-action {
+      margin-top: $grid-gutter-width * 2;
+
+      // Mobile view
+      @include media-breakpoint-down(md) {
+        margin-top: $grid-gutter-width;
+      }
+
+      > .btn {
+        margin-left: $spacer / 4;
+        margin-bottom: $spacer / 4;
+      }
+    }
+
+    // Media Align
+    .align-right {
+      @include media-breakpoint-up(xl) {
+        .features-media {
+          order: 2;
+        }
+
+        .features-desc {
+          order: 1;
+        }
+
+        .info-wrap {
+          padding-right: $grid-gutter-width * 2;
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  // Style 2
+  &.style-2 {
+    .row {
+      > div {
+        + div {
+          @include media-breakpoint-up(lg) {
+            border-left: 1px solid $border-color;
+          }
+        }
+      }
+
+      + .row {
+        @include media-breakpoint-up(lg) {
+          border-top: 1px solid $border-color;
+          margin-top: $grid-gutter-width * 1.5;
+          padding-top: $grid-gutter-width;
+        }
+      }
+    }
+
+    .features-item {
+      text-align: center;
+    }
+
+    // Intro Image
+    .img-icon {
+      margin-bottom: $grid-gutter-width;
+    }
+
+    // Title
+    .features-title h5 {
+      margin-top: 0;
+      margin-bottom: $spacer;
+    }
+
+    // Description
+    .features-descriptions {
+      color: $gray-500;
+      max-width: 300px;
+      margin: auto;
+    }
+  }
+
+  // Style 3
+  &.style-3 {
+    background: var(--color-primary);
+    border-radius: $border-radius;
+    color: $white;
+
+    .row {
+      align-items: center;
+    }
+
+    .info-wrap {
+      padding: $grid-gutter-width * 2 0;
+      max-width: 520px;
+
+      // Mobile view
+      @include media-breakpoint-down(xl) {
+        text-align: center;
+        margin: auto;
+      }
+
+      @include media-breakpoint-down(sm) {
+        padding: $grid-gutter-width 0;
+      }
+    }
+
+    // Title
+    .feature-title {
+      color: $white;
+      margin-top: 0;
+      margin-bottom: $spacer;
+
+      // Mobile view
+      @include media-breakpoint-down(xl) {
+        font-size: var(--h3-font-size);
+      }
+
+      @include media-breakpoint-down(md) {
+        font-size: var(--h4-font-size);
+      }
+    }
+
+    // Intro Image
+    .features-media {
+      // Tablet view
+      @include media-breakpoint-down(md) {
+        margin-bottom: $grid-gutter-width;
+      }
+    }
+
+    // Action
+    .feature-action {
+      margin-top: $grid-gutter-width * 2;
+
+      // Mobile view
+      @include media-breakpoint-down(xl) {
+        margin-top: $grid-gutter-width;
+      }
+
+      > .btn {
+        margin-left: $spacer / 4;
+        margin-bottom: $spacer / 4;
+      }
+    }
+
+    // Media Align
+    .align-right {
+        .features-media {
+          order: 2;
+        }
+
+        .features-desc {
+          order: 1;
+        }
+
+      @include media-breakpoint-up(xl) {
+        .info-wrap {
+          padding-right: $grid-gutter-width * 2;
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}

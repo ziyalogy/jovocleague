@@ -1,0 +1,70 @@
+// Function, variables
+@import "vars";
+
+// For template rtl style
+.fa, .fab, .fal, .far, .fas{
+	transform: scale(-1,1);
+}
+
+.owl-stage-outer {
+	direction: ltr;
+
+	.owl-stage {
+		direction: rtl;
+	}
+}
+
+html[dir="rtl"] {
+	// Fix Icon
+  .fa-angle-double-left:before {
+  	content: "\f101";
+  }
+
+  .fa-angle-left:before {
+  	content: "\f105";
+  }
+
+  .fa-angle-double-right:before {
+  	content: "\f100";
+  }
+
+  .fa-angle-right:before {
+  	content: "\f104";
+  }
+}
+
+.breadcrumb .divider:before {
+	content: "\f060";
+}
+
+// Select Style
+.chosen-container-single .chosen-single {
+	span {
+		margin-right: 0;
+		margin-left: 26px;
+	}
+	
+	div {
+		right: auto;
+		left: 0;
+
+		b {
+			background-position: 8px 8px;
+		}
+	}
+}
+
+#t4-header .chosen-single,
+#t4-header .chzn-single,
+#t4-hero .chosen-single,
+#t4-hero .chzn-single {
+	span {
+		margin-right: 0;
+		margin-left: 26px;
+	}
+
+	div {
+		right: auto;
+		left: 0;
+	}
+}

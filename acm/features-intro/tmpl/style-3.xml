@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <title>Features Intro Style 1</title>
+	<sampledata></sampledata>
+	<fields name="features-intro">
+		<fieldset name="basic" label="FEATURES_BASIC_LABEL" description="FEATURES_BASIC_DESC">
+			<field name="intro-img" type="media" default="" label="FEATURES_INTRO_MEDIA_LABEL" description="FEATURES_INTRO_MEDIA_DESC" />
+
+			<field name="align-media" type="list" default="left" label="FEATURES_ALIGN_MEDIA_LABEL" description="FEATURES_ALIGN_MEDIA_DESC" >
+				<option value="left">Left</option>
+				<option value="right">Right</option>
+			</field>
+
+			<field name="info-title" type="textarea" default="" label="FEATURES_INFO_TITLE_LABEL" description="FEATURES_INFO_TITLE_DESC" />
+
+			<field name="info-desc" type="textarea" default="" label="FEATURES_INFO_DESC_LABEL" description="FEATURES_INFO_DESC_DESC" />
+
+			<field name="btn-appstore" type="text" default="" label="FEATURES_BTN_APPSTORE" description="FEATURES_BTN_APPSTORE_DES"/>
+			<field name="btn-chplay" type="text" default="" label="FEATURES_BTN_CHPLAY" description="FEATURES_BTN_CHPLAY_DES"/>
+			<field name="btn-qr" type="text" default="" label="FEATURES_BTN_QRCODE" description="FEATURES_BTN_QRCODE_DES"/>
+		</fieldset>
+  </fields>
+</form>

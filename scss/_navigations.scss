@@ -1,0 +1,314 @@
+// 
+// Main Navigation
+// -----------------------------------
+
+// Toggle button
+.navbar-toggler {
+  background: var(--color-primary);
+  border-radius: $border-radius;
+  border: 0;
+  color: $white;
+  display: block;
+  line-height: $input-height;
+  margin-left: $grid-gutter-width / 4;
+  height: $input-height;
+  padding: 0;
+  font-size: var(--body-font-size);
+  transition: all 0.35s ease-in-out;
+  width: $input-height;
+
+  // Mobile view
+  @include media-breakpoint-down(md) {
+    line-height: $t4-nav-height-sm;
+    height: $t4-nav-height-sm;
+    width: $t4-nav-height-sm;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: $white;
+    opacity: 0.8;
+  }
+
+  i {
+    font-size: 18px;
+  } 
+}
+
+.t4-navbar {
+  position: relative;
+  padding: 0;
+  @include clearfix();
+
+  .navbar {
+    float: left;
+
+    &.navbar-expand {
+      @each $breakpoint in map-keys($grid-breakpoints) {
+        $next: breakpoint-next($breakpoint, $grid-breakpoints);
+        $infix: breakpoint-infix($next, $grid-breakpoints);
+
+        &#{$infix} {
+          @include media-breakpoint-down($breakpoint) {
+            float: none;
+            display: block;
+            @include clearfix();
+          }        
+        }
+      }    
+    }
+  }
+
+  // Dropdown
+  .dropdown-item {
+    &.dropdown-toggle {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        right: $spacer;
+        top: 50%;
+        margin-top: -2px;
+      }
+    }
+  }
+
+  .nav-item {
+    position: relative;
+  }
+}
+ 
+@include media-breakpoint-up(md) {
+  #t4-navbar-collapse {
+    display: block !important;
+  }
+
+  .navbar-expand-lg #t4-navbar-collapse {
+    display: flex !important;
+  }
+}
+
+// Show toggler button
+.navbar-expand {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    @include media-breakpoint-up($breakpoint) {
+      .navbar-toggler {
+        display: none;
+      }
+    }
+  }
+}
+
+
+//
+// The Nav
+.t4-main-nav {
+  // T4: Need to make the Nav horizontal on lg media.
+  // Because Joomla! add .flex-column to the default menu module
+  @include media-breakpoint-up(lg) {
+    .navbar-nav {
+      flex-direction: row !important;
+    }
+  }
+}
+
+
+//
+// Breadcrumbs
+// -----------------------------------
+.breadcrumb {
+  background-color: transparent;
+  border-radius: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+
+  .fa-home {
+    color: $gray-500;
+  }
+
+  a {
+    color: $gray-500;
+
+    &:hover,&:focus,&:active {
+      color: var(--color-primary);
+    }
+  }
+
+  li.breadcrumb-item {
+    &:first-child {
+      color: $gray-500;
+    }
+  }
+
+  .breadcrumb-item {
+    > span {
+      border-bottom: 1px solid transparent;
+    }
+
+    + .breadcrumb-item {
+      padding-left: 0;
+
+      &:before {
+        display: none;
+      }
+    }
+
+    &.active {
+      > span {
+        color: var(--color-primary);
+        border-bottom-color: $gray-200;
+      }
+    }
+  }
+
+  .divider {
+    display: inline-block;
+    padding-right: $spacer/2;
+    text-align: center;
+
+    &:before {
+      color: $gray-300;
+      content: "\f061";
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      font-size: 9px;
+      margin: 0 3px;
+      position: relative;
+      top: -2px;
+    }
+
+    img {
+      display: none;
+    }
+  }
+
+  .icon {
+    margin-right: $spacer/2;
+  }
+}
+
+
+//
+// Pagination
+// -----------------------------------
+ul.pagination {
+  margin: $spacer-sm 0 !important;
+  flex-wrap: wrap;
+
+  .page-link {
+    border-radius: $border-radius;
+    border: 1px solid $border-color;
+    color: $headings-color;
+    line-height: 2.5rem;
+    font-weight: 700;
+    height: $spacer*2.25;
+    padding: 0 0.8rem;
+    margin: 0 8px 8px 0;
+    min-width: $spacer*2.25;
+    text-align: center;
+    font-size: $font-size-xs;
+  }
+
+  .page-link,
+  .pagenav {
+    &.disabled {
+      color: $gray-500;
+
+      &:hover, &:focus, &:active {
+        background-color: transparent;
+        cursor: default;
+        box-shadow: none;
+      }
+    }
+
+    .icon-chevron-left,
+    .icon-chevron-right {
+      font-size: $font-size-xs;
+      text-align: center;
+      margin-right: $spacer-xs;
+    }
+
+    .icon-chevron-right {
+      margin-right: 0;
+      margin-left: $spacer-xs;
+    }
+  }
+
+}
+
+.counter {
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
+  color: $gray-dark;
+  display: inline-block;
+  font-size: $font-size-xs;
+  line-height: 1;
+  //margin-bottom: 0;
+  margin: $spacer-sm 0;
+  padding: $grid-gutter-width/2 $spacer-lg !important;
+
+  // Mobile
+  @include media-breakpoint-down(sm) {
+    order: 1;
+  }
+}
+
+
+// Navigation bar
+//-----------------------------------
+.pagenav {
+  display: flex;
+  list-style: none;
+  margin: $spacer*2 0;
+  padding: 0;
+  text-align: left;
+  @include clearfix();
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 0;
+  }
+
+  li {
+    display: inline-block;
+
+    &.next {
+      margin-left: auto;
+    }
+
+    a {
+      background-color: $gray-100;
+      border-radius: $border-radius;
+      border: 1px solid $gray-100;
+      color: $headings-color;
+      padding: $btn-padding-y $btn-padding-x;
+      line-height:$btn-line-height ;
+
+      &:hover, &:focus, &:active {
+        background-color: $gray-200;
+        transition: $transition-base;
+        opacity: 0.8;
+      }
+    }
+
+    span:before {
+      color: $headings-color;
+      font-size: $font-size-xs;
+    }
+  }
+}
+
+// Tabs 
+// ----------------------------------
+.nav-tabs {
+  & + .tab-content {
+    padding: $spacer 0;
+  }
+
+  .nav-link.active {
+    border-bottom-color: $white;
+  }
+}

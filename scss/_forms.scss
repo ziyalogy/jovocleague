@@ -1,0 +1,87 @@
+// ------------------------------------
+// FORMS
+// ------------------------------------
+
+// Extend style in base
+// --------------------
+@import "../../../plugins/system/t4/themes/base/scss/_forms";
+
+// 
+// Button
+// -----------------------------------
+.btn {
+	&.btn-outline-primary:hover {
+		color: $white !important;
+	}
+
+	&.btn-outline-white:hover {
+		color: $gray-900 !important;
+	}
+
+	&.btn-default {
+		border: 1px solid $border-color;
+		color: var(--color-primary);
+	}
+
+  &:hover {
+    transition: $transition-base;
+  }
+}
+
+.add-list {
+	&:after {
+		content: "+";
+		margin-left: 10px;;
+	}
+}
+
+form:not(.form-no-margin) .control-group {
+  margin-bottom: $grid-gutter-width;
+}
+
+// 
+// Textual form controls
+// -----------------------------------
+input.form-control {
+  border: 1px solid $gray-200 ;
+  border-radius: $input-border-radius;
+  color: $gray-500;
+  font-size: $input-btn-font-size;
+  max-width: 100%;
+
+  &:focus {
+    box-shadow: $input-btn-focus-box-shadow;
+    border: 1px solid var(--color-primary);
+  }
+}
+
+.control-label {  
+  line-height: 2;
+
+  .form-control-feedback {
+    padding: $grid-gutter-width/3 $grid-gutter-width/2;
+    border-radius: $border-radius-sm;
+  }
+
+  label {
+    margin-bottom: 0 !important;
+    font-weight: 500;
+  }
+}
+
+// 
+// Input group
+// ---------------------------
+.input-group-addon {
+  > span {
+  }
+}
+
+
+// 
+// Btn Toolbar
+// --------------------------
+.btn-toolbar {
+  .btn-group + .btn-group {
+  }
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <title>Hero Style 1</title>
+	<sampledata></sampledata>
+	<fields name="hero-intro">
+		<fieldset name="basic" label="HERO_BASIC_LABEL" description="HERO_BASIC_DESC">
+			<field name="ft-align" type="list" default="left" label="HERO_ALIGN_LABEL" description="HERO_ALIGN_DESC">
+				<option value="left">Left</option>
+				<option value="center">Center</option>
+			</field>
+
+			<field name="ft-mask" type="list" default="0" label="HERO_MASK_OPACITY_LEVEL_LABEL" description="HERO_MASK_OPACITY_LEVEL_DESC">
+				<option value="0">0</option>
+				<option value="0.1">0.1</option>
+				<option value="0.2">0.2</option>
+				<option value="0.3">0.3</option>
+				<option value="0.4">0.4</option>
+				<option value="0.5">0.5</option>
+			</field>
+
+			<field name="ft-bg" type="media" default="" label="HERO_BACKGROUND_LABEL" description="HERO_BACKGROUND_DESC" />
+
+			<field name="title" type="textarea" default="" label="HERO_TITLE_LABEL" description="HERO_TITLE_DESC" rows="5" cols="40" required="1" />
+
+			<field name="description" type="textarea" default="" label="HERO_DESCRIPTION_LABEL" description="HERO_DESCRIPTION_DESC" rows="5" cols="40" />
+		</fieldset>
+
+		<fieldset name="action" label="HERO_ACTION_LABEL" description="HERO_ACTION_DESC" multiple="1">
+			<field name="btn-title" type="text" default="" label="HERO_BUTTON_LABEL" description="HERO_BUTTON_DESC" rows="5" cols="40" />
+			<field name="btn-link" type="text" default="" size="40" label="HERO_BUTTOM_LINK_LABEL" description="HERO_BUTTOM_LINK_DESC"  />
+			<field name="btn-type" type="list" default="primary" label="HERO_BUTTOM_TYPE_LABEL" description="HERO_BUTTOM_TYPE_DESC">
+				<option value="primary">Primary</option>
+				<option value="success">Success</option>
+				<option value="warning">Warning</option>
+				<option value="danger">Danger</option>
+				<option value="info">Info</option>
+			</field>
+		</fieldset>
+  </fields>
+</form>

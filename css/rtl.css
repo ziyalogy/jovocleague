@@ -1,0 +1,57 @@
+/**
+ *------------------------------------------------------------------------------
+ * @package       T4_Blank_BS5 - Free Template for Joomla!
+ *------------------------------------------------------------------------------
+ * @copyright     Copyright (C) 2004-2021 JoomlArt.com. All Rights Reserved.
+ * @license       GNU General Public License version 2 or later; see LICENSE.txt
+ * @authors       JoomlArt
+ *------------------------------------------------------------------------------
+**/
+.fa, .fab, .fal, .far, .fas {
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1); }
+
+.owl-stage-outer {
+  direction: ltr; }
+  .owl-stage-outer .owl-stage {
+    direction: rtl; }
+
+html[dir="rtl"] .fa-angle-double-left:before {
+  content: "\f101"; }
+
+html[dir="rtl"] .fa-angle-left:before {
+  content: "\f105"; }
+
+html[dir="rtl"] .fa-angle-double-right:before {
+  content: "\f100"; }
+
+html[dir="rtl"] .fa-angle-right:before {
+  content: "\f104"; }
+
+.breadcrumb .divider:before {
+  content: "\f060"; }
+
+.chosen-container-single .chosen-single span {
+  margin-right: 0;
+  margin-left: 26px; }
+
+.chosen-container-single .chosen-single div {
+  right: auto;
+  left: 0; }
+  .chosen-container-single .chosen-single div b {
+    background-position: 8px 8px; }
+
+#t4-header .chosen-single span,
+#t4-header .chzn-single span,
+#t4-hero .chosen-single span,
+#t4-hero .chzn-single span {
+  margin-right: 0;
+  margin-left: 26px; }
+
+#t4-header .chosen-single div,
+#t4-header .chzn-single div,
+#t4-hero .chosen-single div,
+#t4-hero .chzn-single div {
+  right: auto;
+  left: 0; }
