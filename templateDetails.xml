@@ -87,6 +87,8 @@
 	    <position>footer</position>
 	    <position>footer-logo</position>
 		<position>debug</position>
+		<position>top-teams-logos</position>
+		<position>debug</position>
 	</positions>
 	<languages folder="language">
 		<language tag="en-GB">en-GB/en-GB.tpl_jovocleague.ini</language>
