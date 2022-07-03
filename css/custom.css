@@ -31,20 +31,27 @@ div.form-wrap #form-login #submit-buton input.button {
 .top_teams_logos .t4-module {
     padding: .0rem;
     margin: 0px;
-    background-color: #f6c119;
-background-image: linear-gradient(90deg, #f6c119 0%, #fadc06 55%, #e7e51f 100%);
-
+    
+}
+.top_teams_logos img {
+    opacity: 1;
+    transition: opacity .35s ease-in-out,transform .2s;
 }
 .not-at-top #t4-header.t4-sticky {
-    background-color: #fff;
     box-shadow: 0 5px 15px 0 rgb(0 0 0 / 5%);
     -webkit-box-shadow: 0 5px 15px 0 rgb(0 0 0 / 5%);
     -moz-box-shadow: 0 5px 15px 0 rgba(0,0,0,.05);
     backdrop-filter: blur(15px) !important;
 }
 #t4-header {
-    background-color: rgba(243,243,243, 0.8) !important;
     backdrop-filter: blur(15px) !important;
+}
+#t4-header {
+    backdrop-filter: blur(15px)!important;
+    background: -webkit-gradient(linear,left top,right top,from(#ec0048),to(#f15a29));
+    background: -webkit-linear-gradient(left,#ec0048 0%,#f15a29 100%);
+    background: -o-linear-gradient(left,#ec0048 0%,#f15a29 100%);
+    background: linear-gradient(90deg,#ec0048 0%,#f15a29 100%);
 }
 #t4-header .chosen-container .chosen-drop, #t4-header .chosen-container .chzn-drop, #t4-header .chzn-container .chosen-drop, #t4-header .chzn-container .chzn-drop {
     border: 1px solid #E5E7EB;
@@ -73,9 +80,85 @@ background-image: linear-gradient(90deg, #f6c119 0%, #fadc06 55%, #e7e51f 100%);
     margin-left: 1.143rem;
 }
 .btn.btn-default, .blog-list .item-readmore a.btn-default, .acym_module_form input.btn-default.btn, #acym_wrapper .acym__front__archive #acym__front__archive__search button.btn-default {
-    border: 1px solid var(--color-primary);
+    border: 1px solid #f2dcdc !important;;
     color: var(--color-primary);
 }
 .acm-clients{
     border-radius: 0px !important;
 }
+.acm-features.style-3 {
+    background-color: #FAD961;
+    background-image: linear-gradient(90deg, #F76B1C 0%, #FAD961 100%);
+    border-radius: 0px;
+    color: #fff;
+}
+.t4-palette-mainnav .nav>li a, .t4-palette-mainnav .nav>li .nav-link {
+    color: #fff;
+}
+.t4-palette-mainnav .nav>li a:hover, .t4-palette-mainnav .nav>li .nav-link {
+    color: #f2dcdc !important;
+}
+.t4-palette-light .t4-module {
+    color: #6c757d;
+    border: none !important;
+}
+.acm-hero.style-1 .mask {
+    background: #03002b;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.t4-palette-light .t4-megamenu .navbar-nav > li.active > a, .t4-palette-light .t4-megamenu .navbar-nav > li.active > .nav-link {
+    color: #fff;
+}
+.t4-palette-light .nav > li a, .t4-palette-light .nav > li .nav-link {
+    color: #fff;
+}
+.t4-palette-light .nav > li a:hover, .t4-palette-light .nav > li .nav-link:hover {
+    color: #fff;
+}
+.t4-palette-light .nav > li a:hover, .t4-palette-light .nav > li .nav-link:hover {
+    color: #f2dcdc;
+}
+
+.acm-hero.style-1 .hero-item h1, .acm-hero.style-1 .hero-item .h1 {
+    font-size: 120px;
+    font-weight: 800;
+    line-height: 1;
+    color: #fff;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-transform: inherit;
+    letter-spacing: -1px;
+}
+.t4-megamenu .navbar-nav > li > a, .t4-megamenu .navbar-nav > li > .nav-link {
+    color: var(--mainnav-link-color);
+    font-weight: 400;
+    padding: 20px 0.857rem;
+    height: 96px;
+    line-height: 56px;
+    -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+.nav-link {
+    font-weight: 400}
+.t4-megamenu .nav > li a .item-caret, .t4-palette-light .t4-megamenu .nav > li .nav-link .item-caret {
+    border-top-color: #fff;
+}
+.t4-footnav .t4-module .module-title span {
+    color: #f8f9fa;
+    border: 0;
+    font-weight: 400;
+    padding-bottom: 0;
+}
+.t4-megamenu .dropdown-menu li > a, .t4-megamenu .dropdown-menu li > .nav-link, .t4-megamenu .dropdown-menu li .dropdown-item {
+    color: #26262b !important;
+    padding: 0.5rem 0;}
+  .t4-megamenu .navbar-nav > li > a:hover, .t4-megamenu .navbar-nav > li > a:focus, .t4-megamenu .navbar-nav > li > a:active,
+  .t4-megamenu .navbar-nav > li > .nav-link:hover,
+  .t4-megamenu .navbar-nav > li > .nav-link:focus,
+  .t4-megamenu .navbar-nav > li > .nav-link:active {
+    color: #f2dcdc!important; }
