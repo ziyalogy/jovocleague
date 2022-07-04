@@ -41,6 +41,16 @@ if (
     }
 }
 ?>
+    
+<div class="jv_breadcrumbs">
+        <div class="container">
+                        <?php echo JHtml::_(
+                'content.prepare',
+                '{loadposition breadcrumbs}'
+            ); ?>
+            </div>
+</div>
+
 <div class="ja-masthead <?php echo $mh_bg_check .
     ' ' .
     $params->get('moduleclass_sfx', ''); ?>" <?php if (
@@ -56,12 +66,11 @@ if ($mh_background && $mh_background->type == 'video'):
             </video>
         </div>
     <?php endif; ?>
+
     <div class="container">
+        
         <div class="ja-masthead-detail">
-            <?php echo JHtml::_(
-                'content.prepare',
-                '{loadposition breadcrumbs}'
-            ); ?>
+
     		<h1 class="ja-masthead-title"><?php echo $masthead['title']; ?></h1>
             <?php if ($masthead['description'] != ''): ?>
     		  <div class="ja-masthead-description"><?php echo $masthead[

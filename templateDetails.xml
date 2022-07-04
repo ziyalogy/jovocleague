@@ -3,7 +3,7 @@
 	<name>jovocleague</name>
 	<version>1.0.0</version>
 	<creationDate>July 1st, 2022</creationDate>
-	<author>Brazio Amanya</author>
+	<author>Ziyal Amanya</author>
 	<authorEmail>ziyalogy@gmail.com</authorEmail>
 	<authorUrl>www.buildal.ug</authorUrl>
 	<copyright>Copyright (C), Buildal Solutions Co., Ltd. All Rights Reserved.</copyright>
@@ -87,6 +87,9 @@
 	    <position>footer</position>
 	    <position>footer-logo</position>
 		<position>debug</position>
+		<position>secondary-menu</position>
+		<position>top-teams-logos</position>
+		<position>league-table</position>
 		<position>top-teams-logos</position>
 		<position>debug</position>
 	</positions>

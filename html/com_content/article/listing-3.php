@@ -88,6 +88,7 @@ if (isset($this->item->rating_sum) && $this->item->rating_count > 0) {
 $uri = JUri::getInstance();
 
 ?>
+
 <div class="view-listing-detail style-3 item-page<?php echo $this->pageclass_sfx; ?>" itemscope itemtype="https://schema.org/Article">
 	<meta itemprop="inLanguage" content="<?php echo ($this->item->language === '*') ? Factory::getApplication()->get('language') : $this->item->language; ?>">
 
