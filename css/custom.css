@@ -157,7 +157,6 @@ div.form-wrap #form-login #submit-buton input.button {
     color: #f8f9fa;
     border: 0;
     font-weight: 800;
-    padding-bottom:;
     border-bottom:2px dotted #5e0866;
     padding-bottom: 0;
 }
@@ -178,9 +177,13 @@ div.form-wrap #form-login #submit-buton input.button {
     padding-bottom: 50px;
     line-height: 2;
 }
-.ja-masthead {
+.ja-masthead::before {
     
-    
+box-shadow: 0 1px 15px rgb(0 0 0 / 14%);
+    background-image: url(../../../images/design/jl-footer.svg);
+    background-position: bottom;
+    background-size: 100% auto;
+    opacity: 0.5;
 }
 .t4-masthead .ja-masthead .ja-masthead-title {
     margin: 0.5715rem 0 1.143rem;
@@ -191,17 +194,17 @@ div.form-wrap #form-login #submit-buton input.button {
 }
 .jv_breadcrumbs {
     color: #dfddf6;
-    background-color: #03002b;
-    padding:10px;
+    background-color: #252525;
+    background-image: linear-gradient(160deg, #000 0%, #252525 100%);padding:10px;
 }
 .breadcrumb .fa-home {
-    color: #faa51a;
-}
-.breadcrumb a, .breadcrumb a:focus, .breadcrumb a:active {
     color: #e7e51f;
 }
+.breadcrumb a, .breadcrumb a:focus, .breadcrumb a:active {
+    color: #b5b4c8;
+}
 .breadcrumb a:hover, .breadcrumb a:focus, .breadcrumb a:active {
-    color: #d0ce1c;
+    color: #cfcede;
 }
 .breadcrumb .breadcrumb-item > span {
     border-bottom: none;
@@ -228,11 +231,8 @@ div.form-wrap #form-login #submit-buton input.button {
 }
 .t4-footnav {
     padding: 1rem 4rem;
-    background: #37003c;
-    background-image: url(../../../images/design/jl-footer.svg);
-    background-position: bottom;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
+    background-color: #252525;
+    background-image: linear-gradient(160deg, #212121 0%, #252525 100%);
 }
 .t4-megamenu .dropdown-menu li a {
 padding-left: 20px!important;
@@ -328,7 +328,7 @@ div[id*="t4-section-"] .section-title-wrap .section-title:before, div[id^="t4-se
 .t4-footnav {
     color: #d9d9d3;
 }
-.t4-main-body {
+.player .t4-main-body {
     padding-bottom: 0.429rem !important;
 }
 .player .view-listing-detail .listing-gallery.view-slide {
@@ -341,4 +341,79 @@ div[id*="t4-section-"] .section-title-wrap .section-title:before, div[id^="t4-se
     position: -webkit-sticky;
     position: sticky;
     top: 1.714rem;
+}
+.view-listing-detail .short-info {background: linear-gradient(90deg,#fff,#f1f1f1);padding: 30px;}
+.view-listing-detail .short-info {
+    margin-bottom: 0rem;
+    
+}
+.player_pic img{
+    -webkit-border-radius: 50% !important;
+-moz-border-radius: 50%!important;
+border-radius: 50%!important;
+border-radius: 100%;
+    width: auto;
+    height: auto;
+    border: 6px solid #f1f1f1;
+    background: #f1f1f1;
+}
+.share-social .social-inner .at-resp-share-element .at-share-btn {
+    padding: 0 !important;
+    background: transparent !important;
+    margin: 0 !important;
+    font-size: 0.929rem !important;
+    width: 1.714rem;
+}
+.view-listing-detail .listing-info-detail-wrap .listing-detail {
+    border-top: none;
+}
+/*hide author pics*/
+.author-page .author .author-avatar a img {
+    border-top-left-radius: 0.572rem;
+    display: none;
+    border-top-right-radius: 0.572rem;
+    width: 100%;
+}
+.t4-palette-light h1{
+    color: #252525;
+}
+.author-page .author .author-block-list:hover {
+      -webkit-box-shadow: 0 1px 4px 0 rgb(0 0 0 / 15%);
+      box-shadow: 0 1px 4px 0 rgb(0 0 0 / 15%);
+    background: linear-gradient(180deg,#fff,#f1f1f1);
+    }
+.author-block .author-title {
+    color: #150e69;
+    font-size: 0.857rem;
+    line-height: 1.6667;
+    margin: 0 0 0.5715rem;
+    text-transform: none;
+}
+.ja-masthead {
+    box-shadow: 0 1px 15px rgb(0 0 0 / 14%);
+}
+.listing-sidebar .contact-detail ul li .label {
+    
+}
+.listing-sidebar .contact-detail ul li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    border-bottom: 1px solid #e8e8e8;
+    display: flex;
+}
+.listing-sidebar .contact-detail ul li + li {
+    margin-top: 0.5rem;
+}
+.player-position {
+    background: #F3F4F6;
+    border-radius: 0.572rem;
+    color: #374151;
+    font-weight: 700;
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 12px;
+}
+.category-name [itemprop="genre"] {
+    font-weight: 700;
+    font-size: x-large;
 }

@@ -81,20 +81,18 @@ if ($params->get("show_intro")) {
 // Get Extrafields
 $customs = JATemplateHelper::getCustomFields($this->item->id, "article");
 $extrafields = new JRegistry($this->item->attribs);
-$ltLocation = empty($customs["latitude-longitude"])
-    ? ""
-    : explode(",", implode(",", $customs["latitude-longitude"]));
+
 $ltGallery = $extrafields->get("listing-gallery");
-$ltAddress = empty($customs["address"])
+$playerGoals = empty($customs["goals"])
     ? ""
-    : implode(",", $customs["address"]);
-$businessTime = empty($customs["business-time"])
+    : implode(",", $customs["goals"]);
+$playerAppearances = empty($customs["appearances"])
     ? ""
-    : explode("-", implode(", ", $customs["business-time"]));
-$ltOpen = empty($businessTime) ? "" : trim($businessTime[0]);
-$ltClose = empty($businessTime) ? "" : trim($businessTime[1]);
+    : explode("-", implode(", ", $customs["appearances"]));
+$ltOpen = empty($playerAppearances) ? "" : trim($playerAppearances[0]);
+$ltClose = empty($playerAppearances) ? "" : trim($playerAppearances[1]);
 $ltStatus = JATemplateHelper::OpenClosedTime($ltOpen, $ltClose);
-$ltPhone = $extrafields->get("phone");
+$playerAssists = $extrafields->get("assists");
 $ltMail = $extrafields->get("mail");
 $ltWebsite = $extrafields->get("website");
 $ltContact = $extrafields->get("link-contact");
@@ -148,44 +146,39 @@ $uri = JUri::getInstance();
 		<div class="listing-info-detail-wrap">
 			<div class="row">
 				<div class="col-lg-4 order-lg-2 mb-3">
-					<div class="listing-sidebar">
-						<?php if (!empty($ltLocation)): ?>
-							<div class="listing-map">
-	            	{jamap locations='{"location":{"0":"<?php echo $this->item
-                  ->title; ?>"},"latitude":{"0":"<?php echo $ltLocation[0]; ?>"},"longitude":{"0":"<?php echo $ltLocation[1]; ?>"},"info":{"0":"<?php echo $this
-    ->item
-    ->title; ?>"},"icon":{"0":""}}' zoom='15' map_width='700' map_height='500'}{/jamap}
-	            </div>
-						<?php endif; ?>
+					<div class="player_pic">
 <?php echo LayoutHelper::render("joomla.content.intro_image", $this->item); ?>
+		</div>
+					<div class="listing-sidebar">
+						
 						<div class="contact-detail">
 							
-							<h5><?php echo Text::_("TPL_BUSINESS_INFO"); ?></h5>
+							<h5><?php echo Text::_("TPL_PLAYER_INFO"); ?></h5>
 
 							<ul>
-								<?php if ($ltAddress): ?>
+								<?php if ($playerGoals): ?>
 									<li>
-										<span class="label"><?php echo Text::_("TPL_LISTING_LOCATION"); ?>:</span>
-										<span class="content"><?php echo $ltAddress; ?></span>
+										<span class="label"><?php echo Text::_("TPL_PLAYER_GOALS"); ?>:</span>
+										<span class="content"><?php echo $playerGoals; ?></span>
 									</li>
 								<?php endif; ?>
 
 								<?php if ($ltOpen || $ltClose): ?>
 									<li>
-										<span class="label"><?php echo Text::_("TPL_HOURS"); ?>:</span>
-										<span class="content">
-											<?php echo $ltOpen; ?> - <?php echo $ltClose; ?>
+										<span class="label"><?php echo Text::_("TPL_PLAYER_APPEARANCES"); ?>:</span>
+										<span class="content"> 
+											 <?php echo $ltOpen; ?> <!-- - <?php echo $ltClose; ?>
 											<span class="stt-time stt-<?php echo strtolower(
                preg_replace("/\s*/", "", $ltStatus)
-           ); ?>"><?php echo $ltStatus; ?></span>
+           ); ?>"><?php echo $ltStatus; ?>--></span>
 										</span>
 									</li>
 								<?php endif; ?>
 
-								<?php if ($ltPhone): ?>
+								<?php if ($playerAssists): ?>
 									<li>
-										<span class="label"><?php echo Text::_("TPL_PHONE"); ?>:</span>
-										<span class="content"><?php echo $ltPhone; ?></span>
+										<span class="label"><?php echo Text::_("TPL_PLAYER_ASSISTS"); ?>:</span>
+										<span class="content"><?php echo $playerAssists; ?></span>
 									</li>
 								<?php endif; ?>
 
@@ -268,9 +261,7 @@ $uri = JUri::getInstance();
          echo $this->item->pagination;
      } ?>
 
-					<?php
-// Todo Not that elegant would be nice to group the params
-?>
+					<?php // Todo Not that elegant would be nice to group the params ?>
 					<?php $useDefList =
          $params->get("show_modify_date") ||
          $params->get("show_publish_date") ||
@@ -310,8 +301,7 @@ $uri = JUri::getInstance();
 										<?php if (
               strtotime($this->item->publish_up) > strtotime(Factory::getDate())
           ): ?>
-											<span class="badge badge-warning"><?php echo Text::_(
-               "JNOTPUBLISHEDYET"
+											<span class="badge badge-warning"><?php echo Text::_(    "JNOTPUBLISHEDYET"
            ); ?></span>
 										<?php endif; ?>
 
@@ -431,9 +421,9 @@ $uri = JUri::getInstance();
 							  <?php endif; ?>
 							  <!-- End showing -->
 
-								<?php if (!empty($customs["price-level"])): ?>
-									<div class="price-level">
-										<?php echo implode(",", $customs["price-level"]); ?>
+								<?php if (!empty($customs["player-position"])): ?>
+									<div class="player-position">
+										<?php echo implode(",", $customs["player-position"]); ?>
 									</div>
 								<?php endif; ?>
 							</div>
@@ -592,14 +582,7 @@ $uri = JUri::getInstance();
       endif; ?>
 					</div>
 
-					<?php if (!empty($customs["amenities"])): ?>
-						<div class="section-listing-info amenities">
-							<?php echo implode($customs["amenities-info"]); ?>
-							<ul class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
-								<?php echo "<li>" . implode("</li><li>", $customs["amenities"]) . "</li>"; ?>
-							</ul>
-						</div>
-					<?php endif; ?>
+					
 
 					<?php if (!empty($ltGallery)): ?>
 					<!-- Menu -->
@@ -746,7 +729,7 @@ $uri = JUri::getInstance();
 			<?php if (!empty($ltGallery)): ?>
 					$(".listing-gallery .owl-carousel").owlCarousel({
 		      addClassActive: true,
-		      items: 2,
+		      items: 3,
 		      singleItem:true,
 		      nav : true,
 		      navText : ["<i class='fas fa-arrow-left'></i>", "<i class='fas fa-arrow-right'></i>"],
@@ -765,10 +748,10 @@ $uri = JUri::getInstance();
 					    margin: 0
 						},
 						991 : {
-					    items: 2
+					    items: 3
 						},
 						1200 : {
-					    items: 2
+					    items: 4
 						}
 					}
 		    });
