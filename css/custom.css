@@ -398,7 +398,9 @@ border-radius: 100%;
 .listing-sidebar .contact-detail ul li {
     display: -webkit-box;
     display: -ms-flexbox;
-    border-bottom: 1px solid #e8e8e8;
+    padding: 5px;
+    border: 1px solid rgba(227,225,226,0.5);
+    background: #f8f8f8;
     display: flex;
 }
 .listing-sidebar .contact-detail ul li + li {
@@ -416,4 +418,62 @@ border-radius: 100%;
 .category-name [itemprop="genre"] {
     font-weight: 700;
     font-size: x-large;
+}
+.player .page-header h2{
+    margin: 0 0 0rem;
+}
+.player .view-listing-detail .article-aside {
+    margin-top: 0rem;
+}
+.listing-type span {
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.857rem;
+    line-height: 42px;
+    text-align: center;
+    background: #1d2655;
+    height: 42px;
+    width: 42px;
+}
+.player .item-style-3.horizontal-4 .jacl-item-wrap__media {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 15%;
+    flex: 0 0 15%;
+    max-width: 15%;
+}
+.listing-sidebar {
+    position: -webkit-inherit;
+    position: inherit;
+}
+.listing-sidebar .contact-detail .info-social a {
+    background: var(--color-primary);
+    border-radius: 0.572rem;
+    border: 0;
+    color: #fff;
+    display: inline-block;
+    height: 1.714rem;
+    border-radius: 50%;
+}
+.player-socials a {
+    background: var(--color-secondary);
+    border-radius: 0.572rem;
+    border: 0;
+    color: #fff;
+    display: inline-block;
+    height: 1.714rem;
+    line-height: 1.714rem;
+    margin-right: 0.4285rem;
+    text-align: center;
+    width: 1.714rem;
+}
+.player-socials ul li ol, ul, dl {
+    list-style: none;
+}
+.item-style-3 .jacl-item__inner {
+    background: linear-gradient(90deg,#fff,#f1f1f1);}
+.small-gutters .item-style-3 {
+    margin-bottom: 5px;
+}
+.team-mates {
+    padding: 1.714rem;
 }
