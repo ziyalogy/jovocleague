@@ -93,6 +93,7 @@
 		<position>top-teams-logos</position>
 		<position>debug</position>
 		<position>team-mates</position>
+		<position>JL-Sponsors</position>
 	</positions>
 	<languages folder="language">
 		<language tag="en-GB">en-GB/en-GB.tpl_jovocleague.ini</language>

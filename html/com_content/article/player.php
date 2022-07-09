@@ -89,9 +89,9 @@ $playerGoals = empty($customs["goals"])
 $playerAppearances = empty($customs["appearances"])
     ? ""
     : explode("-", implode(", ", $customs["appearances"]));
-$ltOpen = empty($playerAppearances) ? "" : trim($playerAppearances[0]);
+$playerAppeared = empty($playerAppearances) ? "" : trim($playerAppearances[0]);
 $ltClose = empty($playerAppearances) ? "" : trim($playerAppearances[1]);
-$ltStatus = JATemplateHelper::OpenClosedTime($ltOpen, $ltClose);
+$ltStatus = JATemplateHelper::OpenClosedTime($playerAppeared, $ltClose);
 $playerAssists = $extrafields->get("assists");
 $ltMail = $extrafields->get("mail");
 $ltWebsite = $extrafields->get("website");
@@ -135,73 +135,28 @@ $uri = JUri::getInstance();
             ); ?>
             </div>
 </div>
-<div class="player view-listing-detail style-2 item-page<?php echo $this->pageclass_sfx; ?>" itemscope itemtype="https://schema.org/Article">
-	<meta itemprop="inLanguage" content="<?php echo $this->item->language === "*"
-     ? Factory::getApplication()->get("language")
-     : $this->item->language; ?>">
-
-	
-
-	<div class="container">
-		<div class="listing-info-detail-wrap">
-			<div class="row">
-				
-
-				<div class="col-lg-8 order-lg-2">
-					
-
-					<?php if ($this->params->get("show_page_heading")): ?>
-					<div class="page-header">
-						<h1> <?php echo $this->escape($this->params->get("page_heading")); ?> </h1>
-					</div>
-					<?php endif; ?>
-
-					<?php if (
-         !empty($this->item->pagination) &&
-         $this->item->pagination &&
-         !$this->item->paginationposition &&
-         $this->item->paginationrelative
-     ) {
-         echo $this->item->pagination;
-     } ?>
-
-					<?php // Todo Not that elegant would be nice to group the params ?>
-					<?php $useDefList =
-         $params->get("show_modify_date") ||
-         $params->get("show_publish_date") ||
-         $params->get("show_create_date") ||
-         $params->get("show_hits") ||
-         $params->get("show_category") ||
-         $params->get("show_parent_category") ||
-         $params->get("show_author") ||
-         $assocParam; ?>
-
-					<?php if (!$useDefList && $this->print): ?>
-						<div id="pop-print" class="btn hidden-print clearfix">
-							<?php echo HTMLHelper::_("icon.print_screen", $this->item, $params); ?>
-						</div>
-					<?php endif; ?>
-
-					<!--PLAYER INFO BOX-->
-					<div class="short-info">
+<div class="short-info">
+<div class = "container">
 						<div class="row">
-						<div class="col-4 col-xl-4">
+						<div class="col-2 col-xl-2">
 									<div class="player_pic">
 										<?php
 
 echo LayoutHelper::render("joomla.content.intro_image", $this->item); ?>
 									</div>
 								</div>
-							<div class="col-8 col-xl-8">
+							<div class="col-8 col-xl-8 player_bio">
 								
 								<?php if ($params->get("show_title") || $params->get("show_author")): ?>
 									<div class="page-header">
 										<?php if ($params->get("show_title")): ?>
 											<h2 itemprop="headline">
-												<?php echo $this->escape($this
-												->item
-												->title); ?>
+												<?php echo $this->escape($this->item->title); ?>
 											</h2>
+											<?php if ($useDefList && ($info == 0 || $info == 2)): ?>
+									 <?php echo $this->escape($this->item->category); ?>
+									<?php
+endif; ?>
 										<?php
 				endif; ?>
 
@@ -360,6 +315,56 @@ endif; ?>
 							</div>
 						</div>
 					</div>
+					</div>
+<div class="player view-listing-detail style-2 item-page<?php echo $this->pageclass_sfx; ?>" itemscope itemtype="https://schema.org/Article">
+	<meta itemprop="inLanguage" content="<?php echo $this->item->language === "*"
+     ? Factory::getApplication()->get("language")
+     : $this->item->language; ?>">
+
+	
+
+	<div class="container">
+		<div class="listing-info-detail-wrap">
+			<div class="row">
+				
+
+				<div class="col-lg-8 order-lg-2">
+					
+
+					<?php if ($this->params->get("show_page_heading")): ?>
+					<div class="page-header">
+						<h1> <?php echo $this->escape($this->params->get("page_heading")); ?> </h1>
+					</div>
+					<?php endif; ?>
+
+					<?php if (
+         !empty($this->item->pagination) &&
+         $this->item->pagination &&
+         !$this->item->paginationposition &&
+         $this->item->paginationrelative
+     ) {
+         echo $this->item->pagination;
+     } ?>
+
+					<?php // Todo Not that elegant would be nice to group the params ?>
+					<?php $useDefList =
+         $params->get("show_modify_date") ||
+         $params->get("show_publish_date") ||
+         $params->get("show_create_date") ||
+         $params->get("show_hits") ||
+         $params->get("show_category") ||
+         $params->get("show_parent_category") ||
+         $params->get("show_author") ||
+         $assocParam; ?>
+
+					<?php if (!$useDefList && $this->print): ?>
+						<div id="pop-print" class="btn hidden-print clearfix">
+							<?php echo HTMLHelper::_("icon.print_screen", $this->item, $params); ?>
+						</div>
+					<?php endif; ?>
+
+					<!--PLAYER INFO BOX-->
+					
 
 					<!--PLAYER INFO BOX-->
 
@@ -601,6 +606,44 @@ endif; ?>
      ):
          echo $this->item->pagination;
      endif; ?>
+	 
+	 
+	 
+	 <?php if (!empty($ltGallery)): ?>
+		<!-- GALLERY -->
+		<div class="listing-gallery view-slide">
+			<div class="container-lg">
+				<div class="owl-carousel">
+					<?php
+     $i = 0;
+     foreach ($ltGallery as $key => $value):
+         $i++; ?>
+						<div class="item">
+							<div class="image-item">
+								<a href="<?php echo $value->listing_img; ?>"  class="html5lightbox" data-group="gallery" data-thumbnail="<?php echo JURI::base(
+    true
+) .
+    "/" .
+    $value->listing_img; ?>">
+									<img src="<?php echo $value->listing_img; ?>" alt="<?php echo $value->listing_alt
+    ? $value->listing_alt
+    : " "; ?>" />
+									<span class="expand">
+										<i class="fas fa-expand-alt"></i>
+									</span>
+								</a>
+							</div>
+						</div>
+					<?php
+     endforeach;
+     ?>
+				</div>
+			</div>
+		</div>
+		<!-- // GALLERY -->
+		<?php endif; ?>
+	 
+	 
 				</div>
 				
 				
@@ -611,27 +654,23 @@ endif; ?>
 						
 						<div class="contact-detail">
 							
-							<h5><?php echo Text::_("TPL_PLAYER_INFO"); ?></h5>
+							<h5><?php echo $this->escape($this->item->title); ?>'s Jovoc League <?php echo Text::_("TPL_PLAYER_INFO"); ?></h5>
 
 							<ul>
-								<?php if ($playerGoals): ?>
+																<?php if ($playerAppeared || $ltClose): ?>
 									<li>
-										<span class="label"><?php echo Text::_("TPL_PLAYER_GOALS"); ?>:</span>
-										<span class="content"><?php echo $playerGoals; ?></span>
+										<span class="content"><b><?php echo $playerAppeared; ?></b> <?php echo Text::_("TPL_PLAYER_APPEARANCES"); ?></span>
 									</li>
 								<?php endif; ?>
 
-								<?php if ($ltOpen || $ltClose): ?>
+								<?php if ($playerGoals): ?>
 									<li>
-										<span class="label"><?php echo Text::_("TPL_PLAYER_APPEARANCES"); ?>:</span>
-										<span class="content"> 
-											 <?php echo $ltOpen; ?> <!-- - <?php echo $ltClose; ?>
-											<span class="stt-time stt-<?php echo strtolower(
-               preg_replace("/\s*/", "", $ltStatus)
-           ); ?>"><?php echo $ltStatus; ?>--></span>
-										</span>
+										
+										<span class="content"><b><?php echo $playerGoals; ?></b> <?php echo Text::_("TPL_PLAYER_GOALS"); ?></span>
 									</li>
 								<?php endif; ?>
+
+
 
 								<?php if ($playerAssists): ?>
 									<li>
@@ -680,7 +719,6 @@ endif; ?>
 						</div>
 						<?php endif; ?>
 						
-						<div class="container">
                         <div class ="team-mates">
 							<h5><?php echo $this->escape($this
 												->item
@@ -688,7 +726,6 @@ endif; ?>
 						<?php echo JHtml::_( 'content.prepare', '{loadposition team-mates}', 'style="JAxhtml"' ); ?>
 								</div>
 						
-            </div>
 						
 					</div>
 					
@@ -702,39 +739,7 @@ endif; ?>
 		</div>
 	</div>
 	
-	<?php if (!empty($ltGallery)): ?>
-		<!-- GALLERY -->
-		<div class="listing-gallery view-slide">
-			<div class="container-lg">
-				<div class="owl-carousel">
-					<?php
-     $i = 0;
-     foreach ($ltGallery as $key => $value):
-         $i++; ?>
-						<div class="item">
-							<div class="image-item">
-								<a href="<?php echo $value->listing_img; ?>"  class="html5lightbox" data-group="gallery" data-thumbnail="<?php echo JURI::base(
-    true
-) .
-    "/" .
-    $value->listing_img; ?>">
-									<img src="<?php echo $value->listing_img; ?>" alt="<?php echo $value->listing_alt
-    ? $value->listing_alt
-    : " "; ?>" />
-									<span class="expand">
-										<i class="fas fa-expand-alt"></i>
-									</span>
-								</a>
-							</div>
-						</div>
-					<?php
-     endforeach;
-     ?>
-				</div>
-			</div>
-		</div>
-		<!-- // GALLERY -->
-		<?php endif; ?>
+	
 </div>
 
 <script>
@@ -759,17 +764,17 @@ endif; ?>
 		      smartSpeed: 1400,
 		      loop: true,
 		      autoWidth: false,
-		      autoplay: false,
+		      autoplay: true,
 		      responsive : {
 						0 : {
-					    items: 1,
+					    items: 2,
 					    margin: 0
 						},
 						991 : {
 					    items: 3
 						},
 						1200 : {
-					    items: 4
+					    items: 3
 						}
 					}
 		    });
