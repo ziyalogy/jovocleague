@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap');
 div.form-wrap .offline-header h1 {
     font-size: 1.5rem !important;
     letter-spacing: -0.02em;
@@ -389,6 +390,10 @@ border-radius: 100%;
     text-transform: none;
 }
 .ja-masthead {
+    background-image: url(../../../images/design/lines-grid-svg5.svg);
+    background-position: bottom center;
+    background-size: cover;
+    background-repeat: no-repeat;
     box-shadow: 0 1px 15px rgb(0 0 0 / 14%);
 }
 .listing-sidebar .contact-detail ul li .label {
@@ -408,12 +413,12 @@ border-radius: 100%;
 .player-position {
     border-radius: 0.572rem;
     color: #fff;
-    font-weight: 700;
+    font-weight: 800;
     background-image: linear-gradient(160deg, #e7e51f 0%, #ff6a87 100%);
     display: inline-block;
     padding: 2px 8px;
-    color:#313131;
-    font-size: 16px;
+    color: #03002b;
+    font-size: 20px;
 }
 .category-name [itemprop="genre"] {
     font-weight: 700;
@@ -489,7 +494,7 @@ border-radius: 100%;
     font-weight: 800;
     box-sizing: border-box;
 }
-#t4-main-body {
+.player #t4-main-body {
     background: linear-gradient(180deg,#FFF4F2 0%,#FFFFFF 100%);
 }
 .listing-sidebar .contact-detail h5{
@@ -511,10 +516,10 @@ border-radius: 100%;
 .short-info{
     padding-top: 30px;
     background-image: url(../../../images/design/lines-grid-svg5.svg);
-    background-position: bottom center;
-    background-size: cover;
+    background-position:right top;
+    background-size: 55%;
     background-repeat: no-repeat;
-    background-color:#060050 ;
+    background-color: #03a9f4;
 }
 .short-info .bg-overlay {
     opacity: 0.05;
@@ -542,4 +547,44 @@ border-radius: 100%;
     margin: 0 auto;
     padding: 4.5rem 0 2rem;
     position: relative;
+    background: #fff!important;
+}
+.shirt_number{
+    color: #fff;
+    font-size: 7rem;
+    background-color: ;
+    float: right;
+    text-align: right;
+    font-family: 'Bungee Outline', cursive;
+}
+.player-shirt{
+    font-size: 16px;
+}
+.player .article-aside {
+    margin-bottom: 0rem;
+}
+.player .page-header{
+    background-color: ;
+}
+.team-role{
+    position: absolute;
+    left: .714rem;
+    top: .714rem;
+}
+.team-role span {
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.857rem;
+    line-height: 32px;
+    text-align: center;
+    height: 32px;
+    width: 32px;
+}
+.player-highlight-position{
+    player-highlight-position
+}
+.player-highlight-team {
+    font-size: 0.857rem;
+    color: #374151;
+    margin-bottom: 0rem;
 }

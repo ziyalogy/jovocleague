@@ -86,16 +86,28 @@ $ltGallery = $extrafields->get("listing-gallery");
 $playerGoals = empty($customs["goals"])
     ? ""
     : implode(",", $customs["goals"]);
+
+$playerCurrentTeam = empty($customs["current-team"])
+    ? ""
+    : implode(",", $customs["current-team"]);
+
+	$playerShirtNumber = empty($customs["player-number"])
+    ? ""
+    : implode(",", $customs["player-number"]);
+
 $playerAppearances = empty($customs["appearances"])
     ? ""
     : explode("-", implode(", ", $customs["appearances"]));
+
 $playerAppeared = empty($playerAppearances) ? "" : trim($playerAppearances[0]);
+
 $ltClose = empty($playerAppearances) ? "" : trim($playerAppearances[1]);
 $ltStatus = JATemplateHelper::OpenClosedTime($playerAppeared, $ltClose);
 $playerAssists = $extrafields->get("assists");
 $ltMail = $extrafields->get("mail");
 $ltWebsite = $extrafields->get("website");
 $ltContact = $extrafields->get("link-contact");
+//$playerTeam = $extrafields->get("current-team");
 
 $ltSocial = $extrafields->get("listing-social");
 $ltMenudesc = $extrafields->get("menu-desc");
@@ -127,6 +139,7 @@ if (isset($this->item->rating_sum) && $this->item->rating_count > 0) {
 $uri = JUri::getInstance();
 ?>
 <?php //echo JHtml::_("content.prepare", "{loadposition breadcrumbs}"); ?>
+<div class="player">
 <div class="jv_breadcrumbs">
         <div class="container">
                         <?php echo JHtml::_(
@@ -145,7 +158,9 @@ $uri = JUri::getInstance();
 echo LayoutHelper::render("joomla.content.intro_image", $this->item); ?>
 									</div>
 								</div>
-							<div class="col-8 col-xl-8 player_bio">
+															
+							<div class="col-6 col-xl-6 player_bio">
+
 								
 								<?php if ($params->get("show_title") || $params->get("show_author")): ?>
 									<div class="page-header">
@@ -153,10 +168,17 @@ echo LayoutHelper::render("joomla.content.intro_image", $this->item); ?>
 											<h2 itemprop="headline">
 												<?php echo $this->escape($this->item->title); ?>
 											</h2>
-											<?php if ($useDefList && ($info == 0 || $info == 2)): ?>
-									 <?php echo $this->escape($this->item->category); ?>
-									<?php
-endif; ?>
+											<?php if ($playerCurrentTeam): ?>
+										
+										<span class="content"><h4><span class="">
+											
+										<?php echo implode(",", $customs["player-position"]); ?></span> 
+										<?php if ($playerCurrentTeam): ?>
+										for  <b><?php echo $playerCurrentTeam; ?></b>
+											<?php endif; ?>
+									</h4></span>
+										
+								<?php endif; ?>
 										<?php
 				endif; ?>
 
@@ -223,100 +245,31 @@ endif; ?>
 									</div>
 								<?php
 endif; ?>
-								<?php if (!empty($customs["player-position"])): ?>
-									<div class="player-position">
-										<?php echo implode(",", $customs["player-position"]); ?>
+
+									<?php if (!empty($customs["player-shirt-name"])): ?>
+									<div class="player-shirt-name player-position">
+										<span class="label"><?php echo Text::_("PLAYER_SHIRT_NAME"); ?>:</span>
+										<span class="content"><?php echo implode(",", $customs["player-shirt-name"]); ?>
+									</div>
+								<?php endif; ?>
+							</div>
+							<div class="col-4 col-xl-4 shirtnum pull-right order-lg-2">
+							<?php if (!empty($customs["player-number"])): ?>
+									<div class="player-number">
+										<span class="content shirt_number"><?php echo implode(",", $customs["player-number"]); ?></span>
 									</div>
 								<?php endif; ?>
 							</div>
 
-							<div class="col-12 col-md-6 d-flex align-items-center">
-								<!-- Show voting form -->
-							  <?php if ($params->get("show_vote")): ?>
-							  	<div class="review-item rating">
-								    <div class="rating-info pd-rating-info">
-								    	<div class="rating-form-wrap">
-									      <span><?php echo JText::_("TPL_VOTE_FOR_US"); ?>: </span>
-									      <form class="rating-form action-vote" method="POST" action="<?php echo htmlspecialchars($uri->toString()); ?>">
-									          <ul class="rating-list">
-									              <li class="rating-current" style="width:<?php echo $this
-								->item->rating_percentage; ?>%;"></li>
-									              <li><a href="javascript:void(0)" title="<?php echo JText::_("JA_1_STAR_OUT_OF_5"); ?>" class="one-star">1</a></li>
-									              <li><a href="javascript:void(0)" title="<?php echo JText::_("JA_2_STARS_OUT_OF_5"); ?>" class="two-stars">2</a></li>
-									              <li><a href="javascript:void(0)" title="<?php echo JText::_("JA_3_STARS_OUT_OF_5"); ?>" class="three-stars">3</a></li>
-									              <li><a href="javascript:void(0)" title="<?php echo JText::_("JA_4_STARS_OUT_OF_5"); ?>" class="four-stars">4</a></li>
-									              <li><a href="javascript:void(0)" title="<?php echo JText::_("JA_5_STARS_OUT_OF_5"); ?>" class="five-stars">5</a></li>
-									          </ul>
-									          <input type="hidden" name="task" value="article.vote" />
-									          <input type="hidden" name="hitcount" value="0" />
-									          <input type="hidden" name="user_rating" value="5" />
-									          <input type="hidden" name="url" value="<?php echo htmlspecialchars($uri->toString()); ?>" />
-									          <?php echo JHtml::_("form.token"); ?>
-									      </form>
-								     	</div>
-
-									    <div class="rating-statics">
-								      	<div class="rating-log"><span><?php echo $this
-								->item->rating_count . " " . Jtext::_("TPL_VOTES"); ?></span></div>
-								      </div>
-								    </div>
-								    <!-- //Rating -->
-
-								    <script type="text/javascript">
-								        !function($){
-								            $('.rating-form').each(function(){
-								                var form = this;
-								                $(this).find('.rating-list li a').click(function(event){
-								                    event.preventDefault();
-								                    if (form.user_rating) {
-								                    	form.user_rating.value = this.innerHTML;
-								                    	form.submit();
-								                    }
-								                });
-								            });
-								        }(window.jQuery);
-								    </script>
-								  </div>
-							  <?php
-endif; ?>
-							  <!-- End showing -->
-
-								<div class="contact-detail">
-								<ul class="player-socials">
-								<?php if ($ltSocial): ?>
-									<li class="info-social">
-										<!--<span class="label"><?php echo Text::_("TPL_SOCIAL"); ?>:</span>-->
-										<span class="content">
-											<?php
-           $i = 0;
-           foreach ($ltSocial as $key => $value):
-               $i++; ?>
-												<a href="<?php echo $value->social_link; ?>" title="" class="<?php echo $value->social_font; ?>-link social-link">
-													<i class="fa fa-<?php echo $value->social_font; ?>"></i>
-												</a>
-												
-											<?php     endforeach;
-           ?>
-										</span>
-									</li>
-								<?php endif; ?>
-								</ul>
-								</div>
+							
 
 							</div>
+							
+															
 
-							<div class="col-12 col-md-6">
-								<div class="share-social">
-									<div class="social-inner">
-										<span class="label"><i class="fas fa-share-alt"></i><?php echo Text::_("TPL_SHARE"); ?></span>
-										<div class="addthis_inline_share_toolbox"></div>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
 					</div>
-<div class="player view-listing-detail style-2 item-page<?php echo $this->pageclass_sfx; ?>" itemscope itemtype="https://schema.org/Article">
+					<div class="player view-listing-detail style-2 item-page<?php echo $this->pageclass_sfx; ?>" itemscope itemtype="https://schema.org/Article">
 	<meta itemprop="inLanguage" content="<?php echo $this->item->language === "*"
      ? Factory::getApplication()->get("language")
      : $this->item->language; ?>">
@@ -654,9 +607,10 @@ endif; ?>
 						
 						<div class="contact-detail">
 							
-							<h5><?php echo $this->escape($this->item->title); ?>'s Jovoc League <?php echo Text::_("TPL_PLAYER_INFO"); ?></h5>
+							<h5><?php echo $this->escape($this->item->title); ?>'s <?php echo Text::_("TPL_PLAYER_INFO"); ?></h5>
 
 							<ul>
+								
 																<?php if ($playerAppeared || $ltClose): ?>
 									<li>
 										<span class="content"><b><?php echo $playerAppeared; ?></b> <?php echo Text::_("TPL_PLAYER_APPEARANCES"); ?></span>
@@ -740,6 +694,9 @@ endif; ?>
 	</div>
 	
 	
+</div>
+					
+
 </div>
 
 <script>
