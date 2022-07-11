@@ -348,14 +348,16 @@ div[id*="t4-section-"] .section-title-wrap .section-title:before, div[id^="t4-se
     
 }
 .player_pic img{
-    -webkit-border-radius: 50% !important;
--moz-border-radius: 50%!important;
-border-radius: 50%!important;
-border-radius: 100%;
+    -webkit-border-radius: 10% !important;
+    -moz-border-radius: 10%!important;
+    border-radius: 10%!important;
+    border-radius: 10%;
     width: auto;
+    box-shadow: 0 10px 14px 0 rgb(0 0 0 / 15%);
+    outline: 6px solid #03a9f4;
     height: auto;
     border: 6px solid #f1f1f1;
-    background: #f1f1f1;
+    background: #03a9f4;
 }
 .share-social .social-inner .at-resp-share-element .at-share-btn {
     padding: 0 !important;

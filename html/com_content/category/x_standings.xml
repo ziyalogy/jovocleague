@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
-	<layout title="Table of KISOBA League teams" option="COM_CONTENT_CATEGORY_VIEW_DEFAULT_OPTION">
+	<layout title="List of primary teachers" option="COM_CONTENT_CATEGORY_VIEW_DEFAULT_OPTION">
 		<help
 			key = "JHELP_MENUS_MENU_ITEM_ARTICLE_CATEGORY_LIST"
 		/>
