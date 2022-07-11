@@ -588,3 +588,6 @@ border-radius: 100%;
     color: #374151;
     margin-bottom: 0rem;
 }
+.player .view-listing-detail .listing-info-detail-wrap {
+    margin-top: 0rem;
+}

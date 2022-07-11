@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <form>
-	<fields name="attribs" addfieldpath="/templates/ja_findus/etc/fields">
+	<fields name="attribs" addfieldpath="/templates/jovocleague/etc/fields">
 		<fieldset
       name="extra-fields"
       label="TPL_GROUP_EXTRA_FIELDS_LABEL"
