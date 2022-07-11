@@ -362,7 +362,7 @@ $uri = JUri::getInstance();
     <tbody>
       <tr>
         <th scope="row">1</th>
-        <td>0</td>
+        <td>Ababombo</td>
         <td>0</td>
         <td>0</td>
         <td>0</td>
@@ -377,7 +377,7 @@ $uri = JUri::getInstance();
     </tbody>
 
     <caption>
-      <div class="alert alert-info">Stats are updated every game week.</div>
+      <div class="badge rounded-pill bg-info text-light">Stats are updated every game week.</div>
     </caption>
 
   </table>
