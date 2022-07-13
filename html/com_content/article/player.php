@@ -562,8 +562,8 @@ endif; ?>
 	 
 	 
 	 
-	 <?php if (!empty($ltGallery)): ?>
-		<!-- GALLERY -->
+	<!-- <?php if (!empty($ltGallery)): ?>
+		-- GALLERY -
 		<div class="listing-gallery view-slide">
 			<div class="container-lg">
 				<div class="owl-carousel">
@@ -593,8 +593,8 @@ endif; ?>
 				</div>
 			</div>
 		</div>
-		<!-- // GALLERY -->
-		<?php endif; ?>
+		-- // GALLERY --
+		<?php endif; ?>-->
 	 
 	 
 				</div>

@@ -576,7 +576,8 @@ div[id*="t4-section-"] .section-title-wrap .section-title:before, div[id^="t4-se
 .team-role span {
     border-radius: 50%;
     color: #fff;
-    font-size: 1.857rem;
+    font-size: 1.37rem;
+    background: #ec0048;
     line-height: 32px;
     text-align: center;
     height: 32px;

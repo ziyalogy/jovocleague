@@ -84,9 +84,9 @@ $path   = JURI::base(true).'/templates/'.$app->getTemplate().'/';
 	?>
 
 	<?php if (!empty($this->intro_items)) : ?>
-	<div id="item-container" class="items-intro row  row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-<?php echo $this->columns ;?> v-gutters">
+	<table class="com-content-category__table category table table-striped table-hover table-borderless border-primary">
 		<?php foreach ($this->intro_items as $key => &$item) : ?>
-			<div class="item-wrap col">
+			<div>
 				<div class="item <?php echo $item->state == 0 ? ' system-unpublished' : null; ?>" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
 					<?php
 						$this->item = &$item;
@@ -96,7 +96,7 @@ $path   = JURI::base(true).'/templates/'.$app->getTemplate().'/';
 				<?php $counter++; ?>
 			</div><!-- end span -->
 		<?php endforeach; ?>
-	</div>
+		</table>
 	<?php endif; ?>
 	
 	

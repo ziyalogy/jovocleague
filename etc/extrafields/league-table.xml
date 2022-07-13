@@ -2,21 +2,22 @@
 <form>
     <fields name="attribs" addfieldpath="/templates/jovocleague/etc/fields">
         <fieldset name="extra-fields" label="TPL_LEAGUE_TABLE_INFO_LABEL" description="" group="extrafields">
-            <field name="type-article" type="hidden" default="view-listing" label="TPL_LEAGUE_TABLE_INFO_LABEL" />
-            <field name="spacer" type="spacer" label="TPL_TABLE_INFO" class="text-label" />
 
             <!-- One team's stats -->
 
-            <field name="listing-faq" type="subform" label="" description="TPL_LISTING_OPTIONS_DESC" layout="joomla.form.field.subform.repeatable-table" icon="list" multiple="true" class="no-row">
-                <form hidden="true" name="list-faq-listing" repeat="true">
-                    <field name="faq_title" type="text" label="Position" description="TPL_LISTING_FAQ_TITLE_DESC" />
-                    <!--<field name="team-logo" type="media" default="" label="Team Logo" description="CLIENT_ITEM_LOGO_DESC" required="1" />
-                    <field name="team" type="sql" query="SELECT id, title FROM #__content WHERE `catid` =35" key_field="id" value_field="title" label="Team" description="COM_BD_MEDIAMANAGER_FORM_DESC_ITEM_ARTICLE" hint="COM_BD_MEDIAMANAGER_FORM_LBL_ITEM_ARTICLE" />-->
-                    <field name="games-played" type="text" label="Played" description="Games played" value="0"/>
+            <field name="league-table" type="subform" label="" description="TPL_LISTING_OPTIONS_DESC" layout="joomla.form.field.subform.repeatable-table" icon="list" multiple="true" >
+                <form hidden="true" name="league-table-form" repeat="true">
+                    <field name="team-position" type="text" label="Position" description="TPL_LISTING_FAQ_TITLE_DESC" />
+                    <!--<field name="team-logo" type="media" default="" label="Team Logo" description="CLIENT_ITEM_LOGO_DESC" required="1" />-->
+                    <field name="team" type="sql" query="SELECT id, title FROM #__content WHERE `catid` =35" key_field="id" value_field="title" label="Team" />
+                    <field name="games-played" min="1" max="2" type="text" label="Played" description="Games played" value="0"/>
                     <field name="games-won" type="text" label="Won" description="Games playerd" value="0"/>
                     <field name="games-drawn" type="text" label="Drawn" description="Games drawn" value="0"/>
+                    <field name="goals-for-team" type="text" label="Drawn" description="Games drawn" value="0"/>
+                    <field name="goals-against-team" type="text" label="Drawn" description="Games drawn" value="0"/>
+                    <field name="goal-difference" type="text" label="Drawn" description="Games drawn" value="0"/>
                     <field name="games-lost" type="text" label="Lost" description="Games lost" value="0"/>
-                    <field name="games-points" type="text" label="Points" description="Games points" value="0"/>
+                    <field name="number-of-points" type="text" label="Points" description="Games points" value="0"/>
                 </form>
             </field>
         </fieldset>

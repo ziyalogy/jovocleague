@@ -50,7 +50,7 @@
         description="TPL_WEBSITE_DESC"
         size="40"
         filter="RAW"
-        hint="https://www.domain.com"
+        hint="https://www.jovocleague.com"
       />
 
 			<field
@@ -129,103 +129,13 @@
             type="text"
             label="TPL_LISTING_SOCIAL_LINK_LABEL"
             description="TPL_LISTING_SOCIAL_LINK_DESC"
-            hint="http://facebook.com/joomlart"
+            hint="http://facebook.com/thejovocleague"
           />
 
 				</form>
 			</field>
 
-			<!-- LOCATION MENU -->
-			<field
-        name="spacer4"
-        type="spacer"
-        label="TPL_LISTING_MENU_LABEL"
-        class="text-label"
-      />
-
-			<field
-        name="menu-desc"
-        type="textarea"
-        label="TPL_LISTING_MENU_DESCRIPTIONS_LABEL"
-        class="text-label"
-        filter="raw"
-      />
-
-			<field
-        name="listing-menu"
-        type="subform"
-        label="TPL_LISTING_OPTIONS"
-        description="TPL_LISTING_OPTIONS_DESC"
-        layout="joomla.form.field.subform.repeatable-table"
-        icon="list"
-        multiple="true"
-        class="no-row"
-      >
-				<form hidden="true" name="list-menu-listing" repeat="true">
-					<field
-            name="menu_image"
-            type="media"
-            label="TPL_LISTING_MENU_IMAGE_LABEL"
-            description="TPL_LISTING_MENU_IMAGE_DESC"
-            hint="facebook"
-          />
-
-					<field
-            name="menu_title"
-            type="text"
-            label="TPL_LISTING_MENU_TITLE_LABEL"
-            description="TPL_LISTING_MENU_TITLE_DESC"
-            hint="Beef cheek"
-          />
-
-					<field
-            name="menu_desc"
-            type="text"
-            label="TPL_LISTING_MENU_DESC_LABEL"
-            description="TPL_LISTING_MENU_DESC_DESC"
-            hint="w/ brioche, hazelnuts, black vinegar laver"
-          />
-
-				</form>
-			</field>
-
-			<!-- LOCATION FAQ -->
-			<field name="spacer4" type="spacer" label="TPL_FAQ_LABEL" class="text-label" />
-
-			<field
-        name="faq-title"
-        type="textarea"
-        label="TPL_LISTING_MENU_DESCRIPTIONS_LABEL"
-        class="text-label"
-        filter="raw"
-      />
-
-			<field
-        name="listing-faq"
-        type="subform"
-        label="TPL_LISTING_OPTIONS"
-        description="TPL_LISTING_OPTIONS_DESC"
-        layout="joomla.form.field.subform.repeatable-table"
-        icon="list"
-        multiple="true"
-        class="no-row"
-      >
-				<form hidden="true" name="list-faq-listing" repeat="true">
-					<field
-            name="faq_title"
-            type="text"
-            label="TPL_LISTING_FAQ_TITLE_LABEL"
-            description="TPL_LISTING_FAQ_TITLE_DESC"
-          />
-
-					<field
-            name="faq_content"
-            type="text"
-            label="TPL_LISTING_FAQ_CONTENT_LABEL"
-            description="TPL_LISTING_FAQ_CONTENT_DESC"
-          />
-				</form>
-			</field>
+			
 		</fieldset>
 	</fields>
 </form>

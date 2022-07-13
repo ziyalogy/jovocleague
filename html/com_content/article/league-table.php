@@ -83,31 +83,32 @@ $customs = JATemplateHelper::getCustomFields($this->item->id, "article");
 $extrafields = new JRegistry($this->item->attribs);
 
 $ltGallery = $extrafields->get("listing-gallery");
-$playerGoals = empty($customs["goals"])
+$gamesPlayed = empty($customs["games-played"])
     ? ""
-    : implode(",", $customs["goals"]);
+    : implode(",", $customs["games-played"]);
 
-$playerCurrentTeam = empty($customs["current-team"])
+$gamesWon = empty($customs["games-won"])
     ? ""
-    : implode(",", $customs["current-team"]);
+    : implode(",", $customs["games-won"]);
 
-	$playerShirtNumber = empty($customs["player-number"])
+	$gamesDrawn = empty($customs["games-drawn"])
     ? ""
-    : implode(",", $customs["player-number"]);
+    : implode(",", $customs["games-drawn"]);
 
-$playerAppearances = empty($customs["appearances"])
+$gamesLost = empty($customs["games-lost"])
     ? ""
-    : explode("-", implode(", ", $customs["appearances"]));
+    : explode("-", implode(", ", $customs["games-lost"]));
 
-$playerAppeared = empty($playerAppearances) ? "" : trim($playerAppearances[0]);
+$playerAppeared = empty($gamesLost) ? "" : trim($gamesLost[0]);
 
-$ltClose = empty($playerAppearances) ? "" : trim($playerAppearances[1]);
+$ltClose = empty($gamesLost) ? "" : trim($gamesLost[1]);
 $ltStatus = JATemplateHelper::OpenClosedTime($playerAppeared, $ltClose);
-$playerAssists = $extrafields->get("assists");
+
+$gamesPoints = $extrafields->get("games-points");
 $ltMail = $extrafields->get("mail");
 $ltWebsite = $extrafields->get("website");
 $ltContact = $extrafields->get("link-contact");
-//$playerTeam = $extrafields->get("current-team");
+//$playerTeam = $extrafields->get("games-won");
 
 $ltSocial = $extrafields->get("listing-social");
 $ltMenudesc = $extrafields->get("menu-desc");
@@ -382,12 +383,10 @@ $uri = JUri::getInstance();
 
   </table>
 </div>
-
-
-
 					<?php if (!empty($leagueTable)): ?>
 					<!-- FAQ -->
-					<div class="section-listing-info league-table">
+                    <div class="table-responsive">
+					<table width="100%" class="table table-striped table-hover table-borderless border-primary ">
 						<?php if ($ltFaqTitle): ?>
 							<?php echo $ltFaqTitle; ?>
 						<?php endif; ?>
@@ -419,9 +418,13 @@ $uri = JUri::getInstance();
        endforeach;
        ?>
 						</div>
-					</div>
+					</table>
+                    </div>
 					<!-- // FAQ -->
 					<?php endif; ?>
+
+
+
 
 					<?php if (
          $info == 0 &&
