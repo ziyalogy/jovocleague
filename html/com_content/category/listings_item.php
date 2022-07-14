@@ -60,10 +60,22 @@ $customs      = JATemplateHelper::getCustomFields($this->item->id, 'article');
 $extrafields = new JRegistry($this->item->attribs);
 $businessTime = empty($customs['business-time']) ? '' : explode("-", implode(", ", $customs['business-time']));
 
-$ltAddress = empty($customs['address']) ? '' : implode(",", $customs['address']);
+$team_position = empty($customs['team-position']) ? '' : implode(",", $customs['team-position']);
 $ltOpen = empty($businessTime) ? '' : trim($businessTime[0]);
 $ltClose = empty($businessTime) ? '' : trim($businessTime[1]);
 $ltStatus = JATemplateHelper::OpenClosedTime($ltOpen, $ltClose);
+
+			$team_position = $extrafields->get('team-position');
+			$team_logo = $extrafields->get('team-logo');
+			$team_class = $extrafields->get('team');
+			$games_played = $extrafields->get('games-played');
+			$games_won = $extrafields->get('games-won');
+			$games_drawn = $extrafields->get('games-drawn');
+			$goals_for_team = $extrafields->get('goals-for-team');
+			$goals_against_team = $extrafields->get('goals-against-team');
+			$goal_difference = $extrafields->get('goal-difference');
+			$games_lost = $extrafields->get('games-lost');
+			$number_of_points = $extrafields->get('number-of-points');
 
 ?>
 
@@ -91,8 +103,8 @@ $ltStatus = JATemplateHelper::OpenClosedTime($ltOpen, $ltClose);
           <div class="fs-xs mb-1 stt-time stt-<?php echo strtolower(preg_replace('/\s*/', '', $ltStatus)) ;?>"><?php echo $ltStatus ;?></div>
         <?php endif ;?>
 
-        <?php if($ltAddress) :?>
-          <div class="location fs-xs"><?php echo $ltAddress ;?></div>
+        <?php if($team_position) :?>
+          <div class="location fs-xs"><?php echo $team_position ;?></div>
         <?php endif ;?>
 
         <?php if (!$params->get('show_intro')) : ?>

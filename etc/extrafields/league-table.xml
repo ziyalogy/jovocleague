@@ -9,9 +9,9 @@
                 <form hidden="true" name="league-table-form" repeat="true">
                     <field name="team-position" type="text" label="Position" description="TPL_LISTING_FAQ_TITLE_DESC" />
                     <!--<field name="team-logo" type="media" default="" label="Team Logo" description="CLIENT_ITEM_LOGO_DESC" required="1" />-->
-                    <field name="team" type="sql" query="SELECT id, title FROM #__content WHERE `catid` =35" key_field="id" value_field="title" label="Team" />
+                    <!--<field name="team" type="sql" query="SELECT id, title FROM #__content WHERE `catid` =35" key_field="id" value_field="title" label="Team" />-->
                     <field name="games-played" min="1" max="2" type="text" label="Played" description="Games played" value="0"/>
-                    <field name="games-won" type="text" label="Won" description="Games playerd" value="0"/>
+                    <field name="games-won" type="text" label="Won" description="Games player" value="0"/>
                     <field name="games-drawn" type="text" label="Drawn" description="Games drawn" value="0"/>
                     <field name="goals-for-team" type="text" label="Drawn" description="Games drawn" value="0"/>
                     <field name="goals-against-team" type="text" label="Drawn" description="Games drawn" value="0"/>
@@ -23,3 +23,28 @@
         </fieldset>
     </fields>
 </form>
+<!--
+    		$team_position = $extrafields->get('team-position');
+			$team_logo = $extrafields->get('team-logo');
+			$team_class = $extrafields->get('team');
+			$games_played = $extrafields->get('games-played');
+			$games_won = $extrafields->get('games-won');
+			$games_drawn = $extrafields->get('games-drawn');
+			$goals_for_team = $extrafields->get('goals-for-team');
+			$goals_against_team = $extrafields->get('goals-against-team');
+			$goal_difference = $extrafields->get('goal-difference');
+			$games_lost = $extrafields->get('games-lost');
+			$number_of_points = $extrafields->get('number-of-points');
+
+            						<?php if ($this->params->get('list_show_author')) : ?>
+							<th scope="col" id="categorylist_header_author">
+								<?php echo HTMLHelper::_('grid.sort', 'CAPTAIN_NAME', 'author', $listDirn, $listOrder); ?>
+							</th>
+						<?php endif; ?>
+						
+						<?php if ($this->params->get('list_show_author')) : ?>
+							<th scope="col" id="categorylist_header_author">
+								<?php echo HTMLHelper::_('grid.sort', 'TEAM_LOGO', 'author', $listDirn, $listOrder); ?>
+							</th>
+						<?php endif; ?>
+-->

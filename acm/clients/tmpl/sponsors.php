@@ -52,8 +52,8 @@ if (100 % $columns) {
 					<div class="client-img">
 						<?php if (
           $clientLink
-      ): ?><a href="<?php echo $clientLink; ?>" title="<?php echo $clientName; ?>" ><?php endif; ?>
-							<img class="img-responsive" alt="<?php echo $clientName; ?>" src="<?php echo $clientLogo; ?>">
+      ): ?><a target="new" href="<?php echo $clientLink; ?>" title="<?php echo $clientName; ?>" ><?php endif; ?>
+							<img class="img-responsive sponsor_logo" alt="<?php echo $clientName; ?>" src="<?php echo $clientLogo; ?>">
 						<?php if ($clientLink): ?></a><?php endif; ?>
 					</div>
 				</div> 

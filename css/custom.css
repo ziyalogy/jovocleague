@@ -253,7 +253,7 @@ padding-left: 20px!important;
     -webkit-border-radius: 3px;
 transition-property: margin-right, #F76B1C;
     -moz-border-radius: 3px;
-    background-image: linear-gradient(90deg, #d9d9d3 0%, #f7f7f7 100%);
+    background-image: linear-gradient(90deg, #e8eef6 0%, #f7f7f7 100%);
 }
 
 .mega-nav img {
@@ -378,6 +378,7 @@ div[id*="t4-section-"] .section-title-wrap .section-title:before, div[id^="t4-se
 }
 .t4-palette-light h1{
     color: #252525;
+    font-weight: 800;
 }
 .author-page .author .author-block-list:hover {
       -webkit-box-shadow: 0 1px 4px 0 rgb(0 0 0 / 15%);
@@ -593,4 +594,58 @@ div[id*="t4-section-"] .section-title-wrap .section-title:before, div[id^="t4-se
 }
 .player .view-listing-detail .listing-info-detail-wrap {
     margin-top: 0rem;
+}
+.category .list-title a {
+    color: #374151;
+    font-weight: normal;
+}
+.view-listings-wrap .view-listing .intro-wrap .page-header h2 a, .view-listings-wrap .view-listing .intro-wrap .page-header .h2 a {
+    color: #111827;
+    font-size: 14px;
+}
+.view-listings-wrap .view-listing .intro-wrap {
+    padding: 0.714rem;
+}
+.article-aside {
+    margin-bottom: 0rem;
+}
+.standings_team_logo img{
+    max-width: 20%;
+}
+a.link-dark {
+    color: #ec0048;
+}
+.table {
+    --t4-table-bg: transparent;
+    --t4-table-accent-bg: rgba(0, 0, 0, 0.04);
+    --t4-table-striped-color: #212529;
+    --t4-table-striped-bg: rgba(0, 0, 0, 0.0);
+    --t4-table-active-color: #212529;
+    --t4-table-active-bg: rgba(0, 0, 0, 0.1);
+    --t4-table-hover-color: #212529;
+    --t4-table-hover-bg: rgba(0, 0, 0, 0.075);
+    width: 100%;
+    margin-bottom: 1.143rem;
+    color: #111827;
+    vertical-align: top;
+    border-color: #dee2e6;
+}
+.acm-features.style-2 .img-icon img {
+    border-radius: 50% !important;
+    margin-bottom: 1.714rem;
+}
+.sponsor_logo img{
+
+}
+
+.social-follow-wrap .social-inner a {
+    background: #000 !important;
+    border-radius: 50%;
+    color: #fff;
+    display: inline-block;
+    line-height: 40px;
+    text-align: center;
+    margin-right: 18px;
+    height: 40px;
+    width: 40px;
 }
